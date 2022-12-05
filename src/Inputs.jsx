@@ -12,21 +12,45 @@ const Inputs = () => {
   };
 
   const handleClick = (e) => {
-    setTaskList((prevList) => [...prevList, text]);
+    setTaskList((prevList) => [
+      ...prevList,
+      { text, id: new Date().getTime() },
+    ]);
     setText("");
   };
 
+  const handleDelete = (e, id) => {
+    setTaskList((prevTask) => prevTask.filter((item) => item.id !== id));
+  };
+
   return (
-    <div>
-      <TextBox
-        onChange={handleChange}
-        value={text}
-        style={{ margin: "100px" }}
-      />
-      <Button themeColor={"primary"} onClick={handleClick}>
-        Add Task
-      </Button>
-      <List list={taskList} />
+    <div
+      style={{
+        display: "grid",
+        placeItems: "center",
+        gap: "20px",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          width: "100%",
+          justifyContent: "center",
+          padding: "10px",
+          margin: "50px 0 10px",
+        }}
+      >
+        <TextBox
+          onChange={handleChange}
+          value={text}
+          style={{ width: "60%" }}
+        />
+        <Button themeColor={"primary"} onClick={handleClick}>
+          Add Task
+        </Button>
+      </div>
+      <List list={taskList} handleDelete={handleDelete} />
     </div>
   );
 };
