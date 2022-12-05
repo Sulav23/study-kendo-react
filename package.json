@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@progress/kendo-react-buttons": "^5.9.0",
+    "@progress/kendo-react-inputs": "^5.9.0",
     "@progress/kendo-react-layout": "^5.10.0-dev.202211101249",
+    "@progress/kendo-react-listview": "^5.9.0",
     "@progress/kendo-theme-bootstrap": "^5.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
